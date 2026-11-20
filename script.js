@@ -8,20 +8,34 @@
   /* ---------- DANE OFERTY (jedno miejsce do edycji cen) ---------- */
   /* n = klucz nazwy, d = klucz krótkiego opisu (teksty są w i18n.js lub w HTML) */
   var WHEELS = {
-    free:    { n: 'p.free.h',    d: 'w.free.d',  price: 1150, axle: 230,  svg: 'wheel-free',  img: 'kolo-wolne.jpg' },
-    drive:   { n: 'w.drive.n',   d: 'w.drive.d', price: 1000, axle: null, svg: 'wheel-drive', img: 'kolo-napedowe.jpg' },
-    comp165: { n: 'p.165.h',     d: 'w.165.d',   price: 1500, axle: 240,  svg: 'wheel-165',   img: 'kolo-zespolone-165.jpg' },
-    comp330: { n: 'p.330.h',     d: 'w.330.d',   price: 1600, axle: 240,  svg: 'wheel-330',   img: 'kolo-zespolone-330.jpg' }
+    free:    { n: 'p.free.h',    d: 'w.free.d',   price: 1150, role: 'free',  axle: 'small-free',  svg: 'wheel-free',  img: 'kolo-wolne.jpg' },
+    drive:   { n: 'w.drive.n',   d: 'w.drive.d',  price: 1000, role: 'drive', axle: null,         svg: 'wheel-drive', img: 'kolo-napedowe.jpg' },
+    comp165: { n: 'p.165.h',     d: 'w.165.d',    price: 1500, role: 'drive', axle: 'small-drive', svg: 'wheel-165',   img: 'kolo-zespolone-165.jpg' },
+    comp330: { n: 'p.330.h',     d: 'w.330.d',    price: 1600, role: 'drive', axle: 'small-drive', svg: 'wheel-330',   img: 'kolo-zespolone-330.jpg' },
+    f60050:  { n: 'w.f60050.n',  d: 'w.f60050.d', price: 1500, role: 'free',  axle: 'ax600',       svg: 'wheel-free',  img: 'kolo-600-wolne.jpg' },
+    d60050:  { n: 'w.d60050.n',  d: 'w.d60050.d', price: 2100, role: 'drive', axle: 'ax600',       svg: 'wheel-330',   img: 'kolo-600-napedowe.jpg' },
+    f60040:  { n: 'w.f60040.n',  d: 'w.f60040.d', price: 1500, role: 'free',  axle: 'ax600',       svg: 'wheel-free',  img: 'kolo-600-wolne.jpg' },
+    d60040:  { n: 'w.d60040.n',  d: 'w.d60040.d', price: 2100, role: 'drive', axle: 'ax600',       svg: 'wheel-330',   img: 'kolo-600-napedowe.jpg' }
   };
 
   var SETS = {
-    '1': { t: 'set.1.t', free: 'free', drive: 'drive',   price: 2100 },
-    '2': { t: 'set.2.t', free: 'free', drive: 'comp165', price: 2500 },
-    '3': { t: 'set.3.t', free: 'free', drive: 'comp330', price: 2600 }
+    '1':     { t: 'set.1.t', d: 'set.1.d', free: 'free',    drive: 'drive',   price: 2100, num: true },
+    '2':     { t: 'set.2.t', free: 'free', drive: 'comp165', price: 2500, num: true },
+    '3':     { t: 'set.3.t', free: 'free', drive: 'comp330', price: 2600, num: true },
+    's60050': { t: 'set.60050.t', d: 'set.60050.d', free: 'f60050', drive: 'd60050', price: 3600 },
+    's60040': { t: 'set.60040.t', d: 'set.60040.d', free: 'f60040', drive: 'd60040', price: 3600 }
   };
 
-  var AXLE_FREE_PRICE = 230;
-  var AXLE_DRIVE_PRICE = 240;
+  /* Osie zestawów 1–3 zostają przy 230 i 240 zł. 480 zł jest tylko przy kołach Ø600. */
+  var AXLES = {
+    'small-free':  { price: 230, title: 'ax.free.t',  desc: 'ax.d',     sum: 'ax.sum.free',  photo: 'os-kola-wolnego.jpg' },
+    'small-drive': { price: 240, title: 'ax.drive.t', desc: 'ax.d',     sum: 'ax.sum.drive', photo: 'os-kola-napedowego.jpg' },
+    'ax600': {
+      price: 480, desc: 'ax.600.d', photo: 'os-kola-napedowego.jpg',
+      freeTitle: 'ax.600free.t', driveTitle: 'ax.600drive.t',
+      freeSum: 'ax.sum.600free', driveSum: 'ax.sum.600drive'
+    }
+  };
 
   /* Ceny w HTML (atrybut data-price) muszą być zgodne z tymi powyżej – skrypt tylko je formatuje. */
 
@@ -227,18 +241,24 @@
   }
 
   /* ---------- KTÓRE OSIE SĄ DOSTĘPNE ---------- */
-  function availableAxles() {
+  function sides() {
     if (state.mode === 'set') {
       var set = SETS[state.setId];
-      return {
-        free: true,
-        drive: WHEELS[set.drive].axle !== null
-      };
+      return { free: WHEELS[set.free], drive: WHEELS[set.drive] };
     }
     var w = WHEELS[state.wheel];
+    return w.role === 'free' ? { free: w, drive: null } : { free: null, drive: w };
+  }
+
+  function axleSpec(wheel, side) {
+    if (!wheel || !wheel.axle) return null;
+    var a = AXLES[wheel.axle];
     return {
-      free: state.wheel === 'free',
-      drive: state.wheel !== 'free' && w.axle !== null
+      price: a.price,
+      title: a.freeTitle ? (side === 'free' ? a.freeTitle : a.driveTitle) : a.title,
+      desc: a.desc,
+      sum: a.freeSum ? (side === 'free' ? a.freeSum : a.driveSum) : a.sum,
+      photo: a.photo
     };
   }
 
@@ -252,7 +272,7 @@
         html += choiceHtml({
           type: 'radio', name: 'choice', value: id, checked: state.setId === id,
           title: t(s.t),
-          desc: t(WHEELS[s.drive].d),
+          desc: s.d ? t(s.d) : t(WHEELS[s.drive].d),
           price: money(s.price)
         });
       });
@@ -270,25 +290,27 @@
   }
 
   function renderAxles() {
-    var av = availableAxles();
-    if (!av.free) state.axleFree = false;
-    if (!av.drive) state.axleDrive = false;
+    var pair = sides();
+    var freeAx = axleSpec(pair.free, 'free');
+    var driveAx = axleSpec(pair.drive, 'drive');
+    if (!freeAx) state.axleFree = false;
+    if (!driveAx) state.axleDrive = false;
 
     var html = '';
-    if (av.free) {
+    if (freeAx) {
       html += choiceHtml({
         type: 'checkbox', name: 'axleFree', value: '1', checked: state.axleFree,
-        title: t('ax.free.t'), desc: t('ax.d'), price: '+' + money(AXLE_FREE_PRICE)
+        title: t(freeAx.title), desc: t(freeAx.desc), price: '+' + money(freeAx.price)
       });
     }
-    if (av.drive) {
+    if (driveAx) {
       html += choiceHtml({
         type: 'checkbox', name: 'axleDrive', value: '1', checked: state.axleDrive,
-        title: t('ax.drive.t'), desc: t('ax.d'), price: '+' + money(AXLE_DRIVE_PRICE)
+        title: t(driveAx.title), desc: t(driveAx.desc), price: '+' + money(driveAx.price)
       });
     }
 
-    if (state.mode === 'set' && !av.drive) html += '<p class="choice-note">' + t('note.set1') + '</p>';
+    if (state.mode === 'set' && !driveAx) html += '<p class="choice-note">' + t('note.set1') + '</p>';
     if (state.mode === 'single' && state.wheel === 'drive') html += '<p class="choice-note">' + t('note.drive') + '</p>';
 
     axleList.innerHTML = html;
@@ -300,9 +322,11 @@
     var lines = [];
     var total = 0;
 
+    var pair = sides();
     if (state.mode === 'set') {
       var s = SETS[state.setId];
-      lines.push({ label: t('set.n', l).replace('{n}', state.setId), price: s.price });
+      var setLabel = s.num ? t('set.n', l).replace('{n}', state.setId) : t(s.t, l);
+      lines.push({ label: setLabel, price: s.price });
       lines.push({ label: t(WHEELS[s.free].n, l), price: null, sub: true });
       lines.push({ label: t(WHEELS[s.drive].n, l), price: null, sub: true });
       total += s.price;
@@ -312,13 +336,15 @@
       total += w.price;
     }
 
-    if (state.axleFree) {
-      lines.push({ label: t('ax.sum.free', l), price: AXLE_FREE_PRICE });
-      total += AXLE_FREE_PRICE;
+    var freeAx = axleSpec(pair.free, 'free');
+    var driveAx = axleSpec(pair.drive, 'drive');
+    if (state.axleFree && freeAx) {
+      lines.push({ label: t(freeAx.sum, l), price: freeAx.price });
+      total += freeAx.price;
     }
-    if (state.axleDrive) {
-      lines.push({ label: t('ax.sum.drive', l), price: AXLE_DRIVE_PRICE });
-      total += AXLE_DRIVE_PRICE;
+    if (state.axleDrive && driveAx) {
+      lines.push({ label: t(driveAx.sum, l), price: driveAx.price });
+      total += driveAx.price;
     }
     return { lines: lines, total: total };
   }
@@ -341,15 +367,19 @@
     var html;
     if (state.mode === 'set') {
       var s = SETS[state.setId];
+      var cap = s.num ? t('set.n').replace('{n}', state.setId) : t(s.t);
       html = pvItem('zestaw-' + state.setId + '.jpg', [WHEELS[s.free].svg, WHEELS[s.drive].svg],
-        t('set.n').replace('{n}', state.setId), 'pv-main pv-set');
+        cap, 'pv-main pv-set');
     } else {
       var w = WHEELS[state.wheel];
       html = pvItem(w.img, [w.svg], t(w.n), 'pv-main pv-single');
     }
+    var shown = sides();
+    var freeAx = axleSpec(shown.free, 'free');
+    var driveAx = axleSpec(shown.drive, 'drive');
     var axles = '';
-    if (state.axleFree) axles += pvItem('os-kola-wolnego.jpg', ['axle'], t('ax.sum.free'), 'pv-axle');
-    if (state.axleDrive) axles += pvItem('os-kola-napedowego.jpg', ['axle'], t('ax.sum.drive'), 'pv-axle');
+    if (state.axleFree && freeAx) axles += pvItem(freeAx.photo, ['axle'], t(freeAx.sum), 'pv-axle');
+    if (state.axleDrive && driveAx) axles += pvItem(driveAx.photo, ['axle'], t(driveAx.sum), 'pv-axle');
     if (axles) html += '<div class="pv-axles">' + axles + '</div>';
     preview.innerHTML = html;
   }

@@ -211,6 +211,8 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 /* Lista produktów (jak w katalogu) */
 .products { margin-top: 1.5rem; border: 1px solid var(--line); background: var(--paper); }
+.k600-block { margin-top: 2.25rem; }
+.k600-block h3 { margin: 0 0 .75rem; }
 .product { display: grid; grid-template-columns: 240px minmax(0, 1fr) auto; gap: 1.5rem; align-items: center; padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--line); }
 .product:last-child { border-bottom: 0; }
 .product-visual { aspect-ratio: 1 / 1; }
