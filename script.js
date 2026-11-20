@@ -12,10 +12,10 @@
     drive:   { n: 'w.drive.n',   d: 'w.drive.d',  price: 1000, role: 'drive', axle: null,         svg: 'wheel-drive', img: 'kolo-napedowe.jpg' },
     comp165: { n: 'p.165.h',     d: 'w.165.d',    price: 1500, role: 'drive', axle: 'small-drive', svg: 'wheel-165',   img: 'kolo-zespolone-165.jpg' },
     comp330: { n: 'p.330.h',     d: 'w.330.d',    price: 1600, role: 'drive', axle: 'small-drive', svg: 'wheel-330',   img: 'kolo-zespolone-330.jpg' },
-    f60050:  { n: 'w.f60050.n',  d: 'w.f60050.d', price: 1500, role: 'free',  axle: 'ax600',       svg: 'wheel-free',  img: 'kolo-600-wolne.jpg' },
-    d60050:  { n: 'w.d60050.n',  d: 'w.d60050.d', price: 2100, role: 'drive', axle: 'ax600',       svg: 'wheel-330',   img: 'kolo-600-napedowe.jpg' },
-    f60040:  { n: 'w.f60040.n',  d: 'w.f60040.d', price: 1500, role: 'free',  axle: 'ax600',       svg: 'wheel-free',  img: 'kolo-600-wolne.jpg' },
-    d60040:  { n: 'w.d60040.n',  d: 'w.d60040.d', price: 2100, role: 'drive', axle: 'ax600',       svg: 'wheel-330',   img: 'kolo-600-napedowe.jpg' }
+    f60050:  { n: 'w.f60050.n',  d: 'w.f60050.d', price: 1500, role: 'free',  axle: 'ax600',       svg: 'wheel-free',  img: 'kolo-wolne.jpg' },
+    d60050:  { n: 'w.d60050.n',  d: 'w.d60050.d', price: 2100, role: 'drive', axle: 'ax600',       svg: 'wheel-330',   img: 'kolo-zespolone-330.jpg' },
+    f60040:  { n: 'w.f60040.n',  d: 'w.f60040.d', price: 1500, role: 'free',  axle: 'ax600',       svg: 'wheel-free',  img: 'kolo-wolne.jpg' },
+    d60040:  { n: 'w.d60040.n',  d: 'w.d60040.d', price: 2100, role: 'drive', axle: 'ax600',       svg: 'wheel-330',   img: 'kolo-zespolone-330.jpg' }
   };
 
   var SETS = {
@@ -368,7 +368,7 @@
     if (state.mode === 'set') {
       var s = SETS[state.setId];
       var cap = s.num ? t('set.n').replace('{n}', state.setId) : t(s.t);
-      html = pvItem('zestaw-' + state.setId + '.jpg', [WHEELS[s.free].svg, WHEELS[s.drive].svg],
+      html = pvItem('zestaw-' + (Number(state.setId) > 3 ? '3' : state.setId) + '.jpg', [WHEELS[s.free].svg, WHEELS[s.drive].svg],
         cap, 'pv-main pv-set');
     } else {
       var w = WHEELS[state.wheel];
