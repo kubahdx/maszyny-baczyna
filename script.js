@@ -213,6 +213,7 @@
     if (persist) { try { localStorage.setItem('lang', l); } catch (e) {} }
     applyStatic();
     refresh(true);
+    updateMoreLabels();
   }
 
   /* ---------- ELEMENTY ---------- */
@@ -511,8 +512,119 @@
     }
   });
 
+  /* Długie sekcje: zwinięte do ok. 30% wysokości z gradientem i przyciskiem */
+  var COLLAPSE_RATIO = 0.3;
+  var COLLAPSE_MIN_FULL = 900;
+  var collapsibles = [];
+
+  function initCollapsible(sectionId) {
+    var sec = $(sectionId);
+    var cont = sec && sec.querySelector('.container');
+    if (!cont) return;
+    var wrap = document.createElement('div');
+    wrap.className = 'collapsible';
+    wrap.id = sectionId + '-body';
+    var inner = document.createElement('div');
+    while (cont.firstChild) inner.appendChild(cont.firstChild);
+    wrap.appendChild(inner);
+    var more = document.createElement('div');
+    more.className = 'collapsible-more';
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'btn btn-ghost';
+    btn.setAttribute('aria-controls', wrap.id);
+    more.appendChild(btn);
+    cont.appendChild(wrap);
+    cont.appendChild(more);
+    var c = { sec: sec, wrap: wrap, inner: inner, more: more, btn: btn, open: false, timer: null };
+    collapsibles.push(c);
+    btn.addEventListener('click', function () { setOpen(c, !c.open, true); });
+    if (window.ResizeObserver) new ResizeObserver(function () { layoutCollapsible(c); }).observe(inner);
+    layoutCollapsible(c);
+  }
+
+  function layoutCollapsible(c) {
+    if (c.open) return;
+    var full = c.inner.offsetHeight;
+    if (full < COLLAPSE_MIN_FULL) {
+      c.more.hidden = true;
+      c.wrap.classList.remove('is-collapsed');
+      c.wrap.style.maxHeight = '';
+      return;
+    }
+    c.more.hidden = false;
+    c.wrap.classList.add('is-collapsed');
+    c.wrap.style.maxHeight = Math.round(full * COLLAPSE_RATIO) + 'px';
+    updateMoreLabels();
+  }
+
+  function setOpen(c, open, userAction) {
+    if (c.open === open) return;
+    clearTimeout(c.timer);
+    c.open = open;
+    var w = c.wrap;
+    if (open && !userAction) {
+      w.classList.remove('is-collapsed');
+      w.style.maxHeight = 'none';
+    } else if (open) {
+      w.classList.add('is-animating');
+      w.style.maxHeight = c.inner.offsetHeight + 'px';
+      w.classList.remove('is-collapsed');
+      c.timer = setTimeout(function () {
+        w.classList.remove('is-animating');
+        w.style.maxHeight = 'none';
+      }, 450);
+    } else {
+      w.style.maxHeight = c.inner.offsetHeight + 'px';
+      void w.offsetHeight;
+      layoutCollapsible(c);
+      if (userAction && c.sec.getBoundingClientRect().top < 0) c.sec.scrollIntoView({ block: 'start' });
+    }
+    updateMoreLabels();
+  }
+
+  function updateMoreLabels() {
+    collapsibles.forEach(function (c) {
+      c.btn.textContent = t(c.open ? 'more.hide' : 'more.show');
+      c.btn.setAttribute('aria-expanded', String(c.open));
+    });
+  }
+
+  function collapsedAncestor(el) {
+    var w = el && el.closest && el.closest('.collapsible');
+    for (var i = 0; w && i < collapsibles.length; i++) {
+      if (collapsibles[i].wrap === w && !collapsibles[i].open && !collapsibles[i].more.hidden) return collapsibles[i];
+    }
+    return null;
+  }
+
+  /* Odnośniki wewnętrzne i fokus klawiatury rozwijają sekcję, jeśli cel jest w ukrytej części */
+  function revealTarget(el) {
+    var c = collapsedAncestor(el);
+    if (c) setOpen(c, true, false);
+    return !!c;
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest ? e.target.closest('a[href^="#"]') : null;
+    if (!a || a.getAttribute('href').length < 2) return;
+    var target = document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1)));
+    if (target && revealTarget(target)) {
+      e.preventDefault();
+      history.replaceState(null, '', a.getAttribute('href'));
+      setTimeout(function () { target.scrollIntoView({ block: 'start' }); }, 60);
+    }
+  });
+  document.addEventListener('focusin', function (e) { revealTarget(e.target); });
+
+  initCollapsible('komplety');
+  initCollapsible('oferta');
+
   /* Start: zapamiętaj polskie teksty z HTML, wybierz język, narysuj kalkulator */
   captureBase();
   buildLangMenu();
   setLang(detectLang(), false);
+  if (location.hash.length > 1) {
+    var initial = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (initial && revealTarget(initial)) setTimeout(function () { initial.scrollIntoView({ block: 'start' }); }, 500);
+  }
 })();
