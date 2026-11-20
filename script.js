@@ -19,11 +19,11 @@
   };
 
   var SETS = {
-    '1':     { t: 'set.1.t', d: 'set.1.d', free: 'free',    drive: 'drive',   price: 2100, num: true },
-    '2':     { t: 'set.2.t', free: 'free', drive: 'comp165', price: 2500, num: true },
-    '3':     { t: 'set.3.t', free: 'free', drive: 'comp330', price: 2600, num: true },
-    '4': { t: 'set.4.t', d: 'set.4.d', free: 'f60050', drive: 'd60050', price: 3600, num: true },
-    '5': { t: 'set.5.t', d: 'set.5.d', free: 'f60040', drive: 'd60040', price: 3600, num: true }
+    '1': { t: 'set.1.t', d: 'sets.s1', free: 'free', drive: 'drive',   price: 2100, num: true },
+    '2': { t: 'set.2.t', d: 'sets.s2', free: 'free', drive: 'comp165', price: 2500, num: true },
+    '3': { t: 'set.3.t', d: 'sets.s3', free: 'free', drive: 'comp330', price: 2600, num: true },
+    '4': { t: 'set.4.t', d: 'sets.s4', free: 'f60050', drive: 'd60050', price: 3600, num: true },
+    '5': { t: 'set.5.t', d: 'sets.s5', free: 'f60040', drive: 'd60040', price: 3600, num: true }
   };
 
   /* Oś do koła wolnego zostaje 230 zł. Oś do kół napędowych zespolonych i do kół Ø600 kosztuje 480 zł. */
@@ -272,7 +272,7 @@
         html += choiceHtml({
           type: 'radio', name: 'choice', value: id, checked: state.setId === id,
           title: t(s.t),
-          desc: s.d ? t(s.d) : t(WHEELS[s.drive].d),
+          desc: t(s.d),
           price: money(s.price)
         });
       });
