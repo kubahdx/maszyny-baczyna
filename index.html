@@ -14,7 +14,7 @@
   <link rel="preload" href="fonts/SourceSans3-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/RobotoSlab-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="fonts/fonts.css">
-  <link rel="stylesheet" href="styles.css?v=20261120a">
+  <link rel="stylesheet" href="styles.css?v=20261120b">
 </head>
 <body>
 
@@ -96,7 +96,6 @@
       <a href="#konfigurator" data-i18n="nav.calc">Kalkulator</a>
       <a href="#komplety" data-i18n="nav.sets">Komplety</a>
       <a href="#oferta" data-i18n="nav.singles">Pojedyncze koła</a>
-      <a href="#kola-600" data-i18n="nav.600">Koła Ø600</a>
       <a href="#osie" data-i18n="nav.axles">Osie</a>
       <a href="#kontakt" data-i18n="nav.contact">Kontakt</a>
     </nav>
@@ -275,6 +274,7 @@
     <div class="container">
       <h2 data-i18n="singles.h2">Pojedyncze koła – cennik</h2>
       <p class="section-lead" data-i18n="singles.lead">Ceny podane za jedną sztukę.</p>
+      <h3 class="group-label" data-i18n="singles.group">Koła z paskiem 6PK1500</h3>
 
       <div class="products">
         <article class="product">
@@ -341,93 +341,89 @@
           <p class="product-price"><strong data-price="1600">1 600 zł</strong><span data-i18n="p.unit">za sztukę</span></p>
         </article>
       </div>
-      <p class="fineprint" data-i18n="singles.fine">Rysunki mają charakter poglądowy.</p>
-    </div>
-  </section>
 
-  <!-- KOŁA Ø600 -->
-  <section class="section section-alt" id="kola-600">
-    <div class="container">
-      <h2 data-i18n="k600.h2">Koła Ø600</h2>
-      <p class="section-lead" data-i18n="k600.lead">Osobna linia kół o średnicy 600 mm, obok kół z paskiem 6PK1500. Dwie wersje, pod inną szerokość piły. W każdej jest koło wolne i koło napędowe zespolone z kołem pasowym Ø330 na dwa paski B-17. Oba koła mają po trzy łożyska 6208 2RS C3 i pierścień W80. Cena kompletu to suma tych dwóch kół.</p>
+      <div class="wheel-group" id="kola-600">
+        <h3 data-i18n="k600.h2">Koła Ø600</h3>
+        <p class="section-lead" data-i18n="k600.lead">Koła o średnicy 600 mm, osobno od kół z paskiem 6PK1500. Dwie wersje, pod inną szerokość piły. W każdej jest koło wolne i koło napędowe zespolone z kołem pasowym Ø330 na dwa paski B-17. Oba koła mają po trzy łożyska 6208 2RS C3 i pierścień W80. Cena kompletu to suma tych dwóch kół.</p>
 
-      <div class="k600-block">
-        <h3 data-i18n="k600.v50">Pod piłę 50 mm</h3>
-        <div class="products">
-          <article class="product">
-            <div class="media product-visual">
-              <svg role="img" aria-label="Koło wolne Ø600, piła 50 mm" data-i18n-attrs="aria-label=w.f60050.n"><use href="#wheel-free"/></svg>
-              <img class="photo" src="zdjecia/kolo-600-wolne.jpg" alt="Koło wolne Ø600, piła 50 mm" data-i18n-attrs="alt=w.f60050.n" loading="lazy" onerror="this.remove()">
-            </div>
-            <div class="product-body">
-              <h3 data-i18n="k600.free.h">Koło wolne</h3>
-              <ul class="specs">
-                <li data-i18n="k600.bear">Trzy łożyska 6208 2RS C3 i pierścień zabezpieczający W80</li>
-                <li data-i18n="k600.belt50">Pasek wielorowkowy 7PK1870, całkowita szerokość bieżni 38 mm</li>
-                <li data-i18n="k600.ded50">Dedykowane pod piłę o szerokości 50 mm</li>
-              </ul>
-            </div>
-            <p class="product-price"><strong data-price="1500">1 500 zł</strong><span data-i18n="p.unit">za sztukę</span></p>
-          </article>
-          <article class="product">
-            <div class="media product-visual">
-              <svg role="img" aria-label="Koło napędowe zespolone Ø600, piła 50 mm" data-i18n-attrs="aria-label=w.d60050.n"><use href="#wheel-330"/></svg>
-              <img class="photo" src="zdjecia/kolo-600-napedowe.jpg" alt="Koło napędowe zespolone Ø600, piła 50 mm" data-i18n-attrs="alt=w.d60050.n" loading="lazy" onerror="this.remove()">
-            </div>
-            <div class="product-body">
-              <h3 data-i18n="k600.drive.h">Koło napędowe zespolone</h3>
-              <ul class="specs">
-                <li data-i18n="k600.bear">Trzy łożyska 6208 2RS C3 i pierścień zabezpieczający W80</li>
-                <li data-i18n="k600.pulley">Koło pasowe Ø330 na dwa paski klinowe B-17</li>
-                <li data-i18n="k600.belt50">Pasek wielorowkowy 7PK1870, całkowita szerokość bieżni 38 mm</li>
-                <li data-i18n="k600.ded50">Dedykowane pod piłę o szerokości 50 mm</li>
-              </ul>
-            </div>
-            <p class="product-price"><strong data-price="2100">2 100 zł</strong><span data-i18n="p.unit">za sztukę</span></p>
-          </article>
+        <div class="k600-block">
+          <h4 data-i18n="k600.v50">Pod piłę 50 mm</h4>
+          <div class="products">
+            <article class="product">
+              <div class="media product-visual">
+                <svg role="img" aria-label="Koło wolne Ø600, piła 50 mm" data-i18n-attrs="aria-label=w.f60050.n"><use href="#wheel-free"/></svg>
+                <img class="photo" src="zdjecia/kolo-600-wolne.jpg" alt="Koło wolne Ø600, piła 50 mm" data-i18n-attrs="alt=w.f60050.n" loading="lazy" onerror="this.remove()">
+              </div>
+              <div class="product-body">
+                <h3 data-i18n="k600.free.h">Koło wolne</h3>
+                <ul class="specs">
+                  <li data-i18n="k600.bear">Trzy łożyska 6208 2RS C3 i pierścień zabezpieczający W80</li>
+                  <li data-i18n="k600.belt50">Pasek wielorowkowy 7PK1870, całkowita szerokość bieżni 38 mm</li>
+                  <li data-i18n="k600.ded50">Dedykowane pod piłę o szerokości 50 mm</li>
+                </ul>
+              </div>
+              <p class="product-price"><strong data-price="1500">1 500 zł</strong><span data-i18n="p.unit">za sztukę</span></p>
+            </article>
+            <article class="product">
+              <div class="media product-visual">
+                <svg role="img" aria-label="Koło napędowe zespolone Ø600, piła 50 mm" data-i18n-attrs="aria-label=w.d60050.n"><use href="#wheel-330"/></svg>
+                <img class="photo" src="zdjecia/kolo-600-napedowe.jpg" alt="Koło napędowe zespolone Ø600, piła 50 mm" data-i18n-attrs="alt=w.d60050.n" loading="lazy" onerror="this.remove()">
+              </div>
+              <div class="product-body">
+                <h3 data-i18n="k600.drive.h">Koło napędowe zespolone</h3>
+                <ul class="specs">
+                  <li data-i18n="k600.bear">Trzy łożyska 6208 2RS C3 i pierścień zabezpieczający W80</li>
+                  <li data-i18n="k600.pulley">Koło pasowe Ø330 na dwa paski klinowe B-17</li>
+                  <li data-i18n="k600.belt50">Pasek wielorowkowy 7PK1870, całkowita szerokość bieżni 38 mm</li>
+                  <li data-i18n="k600.ded50">Dedykowane pod piłę o szerokości 50 mm</li>
+                </ul>
+              </div>
+              <p class="product-price"><strong data-price="2100">2 100 zł</strong><span data-i18n="p.unit">za sztukę</span></p>
+            </article>
+          </div>
+          <p class="fineprint"><span data-i18n="k600.setlabel">Komplet, koło wolne i napędowe:</span> <strong data-price="3600">3 600 zł</strong>. <span data-i18n="k600.setnote">Cena kompletu to suma dwóch kół.</span></p>
         </div>
-        <p class="fineprint"><span data-i18n="k600.setlabel">Komplet, koło wolne i napędowe:</span> <strong data-price="3600">3 600 zł</strong>. <span data-i18n="k600.setnote">Cena kompletu to suma dwóch kół.</span></p>
-      </div>
 
-      <div class="k600-block">
-        <h3 data-i18n="k600.v40">Pod piłę 38–40 mm</h3>
-        <div class="products">
-          <article class="product">
-            <div class="media product-visual">
-              <svg role="img" aria-label="Koło wolne Ø600, piła 38–40 mm" data-i18n-attrs="aria-label=w.f60040.n"><use href="#wheel-free"/></svg>
-              <img class="photo" src="zdjecia/kolo-600-wolne.jpg" alt="Koło wolne Ø600, piła 38–40 mm" data-i18n-attrs="alt=w.f60040.n" loading="lazy" onerror="this.remove()">
-            </div>
-            <div class="product-body">
-              <h3 data-i18n="k600.free.h">Koło wolne</h3>
-              <ul class="specs">
-                <li data-i18n="k600.bear">Trzy łożyska 6208 2RS C3 i pierścień zabezpieczający W80</li>
-                <li data-i18n="k600.belt40">Pasek wielorowkowy 6PK1880, całkowita szerokość bieżni 32 mm</li>
-                <li data-i18n="k600.ded40">Dedykowane pod piłę o szerokości 38–40 mm</li>
-              </ul>
-            </div>
-            <p class="product-price"><strong data-price="1500">1 500 zł</strong><span data-i18n="p.unit">za sztukę</span></p>
-          </article>
-          <article class="product">
-            <div class="media product-visual">
-              <svg role="img" aria-label="Koło napędowe zespolone Ø600, piła 38–40 mm" data-i18n-attrs="aria-label=w.d60040.n"><use href="#wheel-330"/></svg>
-              <img class="photo" src="zdjecia/kolo-600-napedowe.jpg" alt="Koło napędowe zespolone Ø600, piła 38–40 mm" data-i18n-attrs="alt=w.d60040.n" loading="lazy" onerror="this.remove()">
-            </div>
-            <div class="product-body">
-              <h3 data-i18n="k600.drive.h">Koło napędowe zespolone</h3>
-              <ul class="specs">
-                <li data-i18n="k600.bear">Trzy łożyska 6208 2RS C3 i pierścień zabezpieczający W80</li>
-                <li data-i18n="k600.pulley">Koło pasowe Ø330 na dwa paski klinowe B-17</li>
-                <li data-i18n="k600.belt40">Pasek wielorowkowy 6PK1880, całkowita szerokość bieżni 32 mm</li>
-                <li data-i18n="k600.ded40">Dedykowane pod piłę o szerokości 38–40 mm</li>
-              </ul>
-            </div>
-            <p class="product-price"><strong data-price="2100">2 100 zł</strong><span data-i18n="p.unit">za sztukę</span></p>
-          </article>
+        <div class="k600-block">
+          <h4 data-i18n="k600.v40">Pod piłę 38–40 mm</h4>
+          <div class="products">
+            <article class="product">
+              <div class="media product-visual">
+                <svg role="img" aria-label="Koło wolne Ø600, piła 38–40 mm" data-i18n-attrs="aria-label=w.f60040.n"><use href="#wheel-free"/></svg>
+                <img class="photo" src="zdjecia/kolo-600-wolne.jpg" alt="Koło wolne Ø600, piła 38–40 mm" data-i18n-attrs="alt=w.f60040.n" loading="lazy" onerror="this.remove()">
+              </div>
+              <div class="product-body">
+                <h3 data-i18n="k600.free.h">Koło wolne</h3>
+                <ul class="specs">
+                  <li data-i18n="k600.bear">Trzy łożyska 6208 2RS C3 i pierścień zabezpieczający W80</li>
+                  <li data-i18n="k600.belt40">Pasek wielorowkowy 6PK1880, całkowita szerokość bieżni 32 mm</li>
+                  <li data-i18n="k600.ded40">Dedykowane pod piłę o szerokości 38–40 mm</li>
+                </ul>
+              </div>
+              <p class="product-price"><strong data-price="1500">1 500 zł</strong><span data-i18n="p.unit">za sztukę</span></p>
+            </article>
+            <article class="product">
+              <div class="media product-visual">
+                <svg role="img" aria-label="Koło napędowe zespolone Ø600, piła 38–40 mm" data-i18n-attrs="aria-label=w.d60040.n"><use href="#wheel-330"/></svg>
+                <img class="photo" src="zdjecia/kolo-600-napedowe.jpg" alt="Koło napędowe zespolone Ø600, piła 38–40 mm" data-i18n-attrs="alt=w.d60040.n" loading="lazy" onerror="this.remove()">
+              </div>
+              <div class="product-body">
+                <h3 data-i18n="k600.drive.h">Koło napędowe zespolone</h3>
+                <ul class="specs">
+                  <li data-i18n="k600.bear">Trzy łożyska 6208 2RS C3 i pierścień zabezpieczający W80</li>
+                  <li data-i18n="k600.pulley">Koło pasowe Ø330 na dwa paski klinowe B-17</li>
+                  <li data-i18n="k600.belt40">Pasek wielorowkowy 6PK1880, całkowita szerokość bieżni 32 mm</li>
+                  <li data-i18n="k600.ded40">Dedykowane pod piłę o szerokości 38–40 mm</li>
+                </ul>
+              </div>
+              <p class="product-price"><strong data-price="2100">2 100 zł</strong><span data-i18n="p.unit">za sztukę</span></p>
+            </article>
+          </div>
+          <p class="fineprint"><span data-i18n="k600.setlabel">Komplet, koło wolne i napędowe:</span> <strong data-price="3600">3 600 zł</strong>. <span data-i18n="k600.setnote">Cena kompletu to suma dwóch kół.</span></p>
         </div>
-        <p class="fineprint"><span data-i18n="k600.setlabel">Komplet, koło wolne i napędowe:</span> <strong data-price="3600">3 600 zł</strong>. <span data-i18n="k600.setnote">Cena kompletu to suma dwóch kół.</span></p>
-      </div>
 
-      <p class="fineprint"><span data-i18n="k600.axlepre">Do koła wolnego i do koła napędowego pasuje oś taka jak do koła napędowego zespolonego. Przy kołach Ø600 kosztuje</span> <strong data-price="480">480 zł</strong>.</p>
+        <p class="fineprint"><span data-i18n="k600.axlepre">Do koła wolnego i do koła napędowego pasuje oś taka jak do koła napędowego zespolonego. Przy kołach Ø600 kosztuje</span> <strong data-price="480">480 zł</strong>.</p>
+      </div>
       <p class="fineprint" data-i18n="singles.fine">Rysunki mają charakter poglądowy.</p>
     </div>
   </section>
