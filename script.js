@@ -22,8 +22,8 @@
     '1':     { t: 'set.1.t', d: 'set.1.d', free: 'free',    drive: 'drive',   price: 2100, num: true },
     '2':     { t: 'set.2.t', free: 'free', drive: 'comp165', price: 2500, num: true },
     '3':     { t: 'set.3.t', free: 'free', drive: 'comp330', price: 2600, num: true },
-    's60050': { t: 'set.60050.t', d: 'set.60050.d', free: 'f60050', drive: 'd60050', price: 3600 },
-    's60040': { t: 'set.60040.t', d: 'set.60040.d', free: 'f60040', drive: 'd60040', price: 3600 }
+    '4': { t: 'set.4.t', d: 'set.4.d', free: 'f60050', drive: 'd60050', price: 3600, num: true },
+    '5': { t: 'set.5.t', d: 'set.5.d', free: 'f60040', drive: 'd60040', price: 3600, num: true }
   };
 
   /* Oś do koła wolnego zostaje 230 zł. Oś do kół napędowych zespolonych i do kół Ø600 kosztuje 480 zł. */
