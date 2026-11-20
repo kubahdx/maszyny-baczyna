@@ -26,10 +26,10 @@
     's60040': { t: 'set.60040.t', d: 'set.60040.d', free: 'f60040', drive: 'd60040', price: 3600 }
   };
 
-  /* Osie zestawów 1–3 zostają przy 230 i 240 zł. 480 zł jest tylko przy kołach Ø600. */
+  /* Oś do koła wolnego zostaje 230 zł. Oś do kół napędowych zespolonych i do kół Ø600 kosztuje 480 zł. */
   var AXLES = {
     'small-free':  { price: 230, title: 'ax.free.t',  desc: 'ax.d',     sum: 'ax.sum.free',  photo: 'os-kola-wolnego.jpg' },
-    'small-drive': { price: 240, title: 'ax.drive.t', desc: 'ax.d',     sum: 'ax.sum.drive', photo: 'os-kola-napedowego.jpg' },
+    'small-drive': { price: 480, title: 'ax.drive.t', desc: 'ax.d',     sum: 'ax.sum.drive', photo: 'os-kola-napedowego.jpg' },
     'ax600': {
       price: 480, desc: 'ax.600.d', photo: 'os-kola-napedowego.jpg',
       freeTitle: 'ax.600free.t', driveTitle: 'ax.600drive.t',
