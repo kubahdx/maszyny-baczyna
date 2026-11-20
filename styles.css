@@ -231,12 +231,13 @@ ul { margin: 0; padding: 0; list-style: none; }
 .product-price span { color: var(--muted); font-size: 1rem; }
 
 /* Zdjęcia kompletów */
-.set-photos { display: flex; flex-wrap: wrap; gap: 1.25rem; margin-top: 1.5rem; }
+.set-photos { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; margin-top: 1.5rem; }
 .set-photos:empty { display: none; }
-.set-photo { flex: 1 1 280px; max-width: 440px; margin: 0; background: var(--paper); border: 1px solid var(--line); }
+.set-photo { margin: 0; background: var(--paper); border: 1px solid var(--line); }
 .set-visual { aspect-ratio: 4 / 3; border: 0; border-bottom: 1px solid var(--line); }
 .set-photo figcaption { padding: .8rem 1rem 1rem; font-size: 1rem; line-height: 1.35; }
 .set-photo figcaption strong { display: block; font-family: var(--font-display); color: var(--green-dark); font-size: 1.1rem; }
+.set-visual .pv-svgs svg { width: 36%; max-width: 150px; }
 .set-photo .set-name { display: block; margin: .15rem 0 .65rem; }
 .set-photo .specs { margin: 0; font-size: .95rem; color: var(--text); }
 .set-detail { display: block; margin-top: .35rem; font-size: .92rem; color: var(--muted); line-height: 1.4; }
@@ -409,7 +410,6 @@ legend { font-weight: 700; font-size: 1.15rem; padding: 0; margin-bottom: .7rem;
   .summary { position: static; max-height: none; overflow: visible; }
   .summary-total strong { font-size: clamp(1.5rem, 7vw, 1.85rem); }
   .set-photos { gap: 1rem; }
-  .set-photo { flex: 1 1 min(100%, 340px); max-width: none; }
 
   /* Produkty: jedna kolumna już na tablecie — 3-kolumnowy układ jest za ciasny */
   .product { grid-template-columns: 1fr; gap: 1rem; padding: 1.15rem; }
@@ -444,7 +444,7 @@ legend { font-weight: 700; font-size: 1.15rem; padding: 0; margin-bottom: .7rem;
 }
 @media (max-width: 720px) {
   .pv-axles { grid-template-columns: 1fr; }
-  .set-photo { flex-basis: 100%; }
+  .set-photos { grid-template-columns: 1fr; }
 }
 @media (max-width: 640px) {
   .sets-table, .sets-table tbody, .sets-table tr, .sets-table th, .sets-table td { display: block; }
