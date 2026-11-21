@@ -15,7 +15,9 @@
     f60050:  { n: 'w.f60050.n',  d: 'w.f60050.d', price: 1500, role: 'free',  axle: 'ax600',       svg: 'wheel-free',  img: 'kolo-wolne.jpg' },
     d60050:  { n: 'w.d60050.n',  d: 'w.d60050.d', price: 2100, role: 'drive', axle: 'ax600',       svg: 'wheel-330',   img: 'kolo-zespolone-330.jpg' },
     f60040:  { n: 'w.f60040.n',  d: 'w.f60040.d', price: 1500, role: 'free',  axle: 'ax600',       svg: 'wheel-free',  img: 'kolo-wolne.jpg' },
-    d60040:  { n: 'w.d60040.n',  d: 'w.d60040.d', price: 2100, role: 'drive', axle: 'ax600',       svg: 'wheel-330',   img: 'kolo-zespolone-330.jpg' }
+    d60040:  { n: 'w.d60040.n',  d: 'w.d60040.d', price: 2100, role: 'drive', axle: 'ax600',       svg: 'wheel-330',   img: 'kolo-zespolone-330.jpg' },
+    f700:    { n: 'w.f700.n',    d: 'w.f700.d',   price: 2500, role: 'free',  axle: null,          svg: 'wheel-free',  img: 'kolo-wolne-700.jpg',      setOnly: true },
+    d700:    { n: 'w.d700.n',    d: 'w.d700.d',   price: 3500, role: 'drive', axle: null,          svg: 'wheel-330',   img: 'kolo-napedowe-700.jpg',   setOnly: true }
   };
 
   var SETS = {
@@ -23,15 +25,16 @@
     '2': { t: 'set.2.t', d: 'sets.s2', free: 'free', drive: 'comp165', price: 2500, num: true },
     '3': { t: 'set.3.t', d: 'sets.s3', free: 'free', drive: 'comp330', price: 2600, num: true },
     '4': { t: 'set.4.t', d: 'sets.s4', free: 'f60050', drive: 'd60050', price: 3600, num: true },
-    '5': { t: 'set.5.t', d: 'sets.s5', free: 'f60040', drive: 'd60040', price: 3600, num: true }
+    '5': { t: 'set.5.t', d: 'sets.s5', free: 'f60040', drive: 'd60040', price: 3600, num: true },
+    '6': { t: 'set.6.t', d: 'sets.s6', free: 'f700',   drive: 'd700',   price: 6000, num: true }
   };
 
   /* Oś do koła wolnego zostaje 230 zł. Oś do kół napędowych zespolonych i do kół Ø600 kosztuje 480 zł. */
   var AXLES = {
     'small-free':  { price: 230, title: 'ax.free.t',  desc: 'ax.d',     sum: 'ax.sum.free',  photo: 'os-kola-wolnego.jpg' },
-    'small-drive': { price: 480, title: 'ax.drive.t', desc: 'ax.d',     sum: 'ax.sum.drive', photo: 'os-kola-napedowego.jpg' },
+    'small-drive': { price: 240, title: 'ax.drive.t', desc: 'ax.d',     sum: 'ax.sum.drive', photo: 'os-kola-napedowego.jpg' },
     'ax600': {
-      price: 480, desc: 'ax.600.d', photo: 'os-kola-napedowego.jpg',
+      price: 240, desc: 'ax.600.d', photo: 'os-kola-napedowego.jpg',
       freeTitle: 'ax.600free.t', driveTitle: 'ax.600drive.t',
       freeSum: 'ax.sum.600free', driveSum: 'ax.sum.600drive'
     }
@@ -281,6 +284,7 @@
       choiceLegend.textContent = t('calc.l2.single');
       Object.keys(WHEELS).forEach(function (id) {
         var w = WHEELS[id];
+        if (w.setOnly) return;
         html += choiceHtml({
           type: 'radio', name: 'choice', value: id, checked: state.wheel === id,
           title: t(w.n), desc: t(w.d), price: money(w.price)
@@ -311,7 +315,6 @@
       });
     }
 
-    if (state.mode === 'set' && !driveAx) html += '<p class="choice-note">' + t('note.set1') + '</p>';
     if (state.mode === 'single' && state.wheel === 'drive') html += '<p class="choice-note">' + t('note.drive') + '</p>';
 
     axleList.innerHTML = html;
