@@ -17,7 +17,7 @@
     f60040:  { n: 'w.f60040.n',  d: 'w.f60040.d', price: 1500, role: 'free',  axle: 'ax600',       svg: 'wheel-free',  img: 'kolo-wolne.jpg' },
     d60040:  { n: 'w.d60040.n',  d: 'w.d60040.d', price: 2100, role: 'drive', axle: 'ax600',       svg: 'wheel-330',   img: 'kolo-zespolone-330.jpg' },
     f700:    { n: 'w.f700.n',    d: 'w.f700.d',   price: 2500, role: 'free',  axle: 'ax700',       svg: 'wheel-free',  img: 'kolo-wolne-700.jpg',      setOnly: true },
-    d700:    { n: 'w.d700.n',    d: 'w.d700.d',   price: 3500, role: 'drive', axle: 'ax700',       svg: 'wheel-330',   img: 'kolo-napedowe-700.jpg',   setOnly: true }
+    d700:    { n: 'w.d700.n',    d: 'w.d700.d',   price: 3500, role: 'drive', axle: 'ax700',       svg: 'wheel-330',   img: 'kolo-zespolone-700.jpg',  setOnly: true }
   };
 
   var SETS = {
@@ -377,7 +377,9 @@
     if (state.mode === 'set') {
       var s = SETS[state.setId];
       var cap = s.num ? t('set.n').replace('{n}', state.setId) : t(s.t);
-      html = pvItem('zestaw-' + (Number(state.setId) > 3 ? '3' : state.setId) + '.jpg', [WHEELS[s.free].svg, WHEELS[s.drive].svg],
+      var setImg = Number(state.setId) === 6 ? 'zestaw-6.jpg'
+        : (Number(state.setId) > 3 ? 'zestaw-3.jpg' : ('zestaw-' + state.setId + '.jpg'));
+      html = pvItem(setImg, [WHEELS[s.free].svg, WHEELS[s.drive].svg],
         cap, 'pv-main pv-set');
     } else {
       var w = WHEELS[state.wheel];
