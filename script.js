@@ -39,7 +39,7 @@
       freeSum: 'ax.sum.600free', driveSum: 'ax.sum.600drive'
     },
     'ax700': {
-      price: 240, desc: 'ax.700.d', photo: 'os-kola-napedowego.jpg',
+      price: 370, desc: 'ax.700.d', photo: 'os-kola-napedowego.jpg',
       freeTitle: 'ax.700free.t', driveTitle: 'ax.700drive.t',
       freeSum: 'ax.sum.700free', driveSum: 'ax.sum.700drive'
     }
