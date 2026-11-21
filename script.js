@@ -16,8 +16,8 @@
     d60050:  { n: 'w.d60050.n',  d: 'w.d60050.d', price: 2100, role: 'drive', axle: 'ax600',       svg: 'wheel-330',   img: 'kolo-zespolone-330.jpg' },
     f60040:  { n: 'w.f60040.n',  d: 'w.f60040.d', price: 1500, role: 'free',  axle: 'ax600',       svg: 'wheel-free',  img: 'kolo-wolne.jpg' },
     d60040:  { n: 'w.d60040.n',  d: 'w.d60040.d', price: 2100, role: 'drive', axle: 'ax600',       svg: 'wheel-330',   img: 'kolo-zespolone-330.jpg' },
-    f700:    { n: 'w.f700.n',    d: 'w.f700.d',   price: 2500, role: 'free',  axle: null,          svg: 'wheel-free',  img: 'kolo-wolne-700.jpg',      setOnly: true },
-    d700:    { n: 'w.d700.n',    d: 'w.d700.d',   price: 3500, role: 'drive', axle: null,          svg: 'wheel-330',   img: 'kolo-napedowe-700.jpg',   setOnly: true }
+    f700:    { n: 'w.f700.n',    d: 'w.f700.d',   price: 2500, role: 'free',  axle: 'ax700',       svg: 'wheel-free',  img: 'kolo-wolne-700.jpg',      setOnly: true },
+    d700:    { n: 'w.d700.n',    d: 'w.d700.d',   price: 3500, role: 'drive', axle: 'ax700',       svg: 'wheel-330',   img: 'kolo-napedowe-700.jpg',   setOnly: true }
   };
 
   var SETS = {
@@ -37,6 +37,11 @@
       price: 240, desc: 'ax.600.d', photo: 'os-kola-napedowego.jpg',
       freeTitle: 'ax.600free.t', driveTitle: 'ax.600drive.t',
       freeSum: 'ax.sum.600free', driveSum: 'ax.sum.600drive'
+    },
+    'ax700': {
+      price: 240, desc: 'ax.700.d', photo: 'os-kola-napedowego.jpg',
+      freeTitle: 'ax.700free.t', driveTitle: 'ax.700drive.t',
+      freeSum: 'ax.sum.700free', driveSum: 'ax.sum.700drive'
     }
   };
 

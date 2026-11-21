@@ -81,7 +81,12 @@ window.I18N = {
       'k700.setlabel': 'Zestaw nr 6, koło wolne i napędowe:',
       'k700.setnote': 'Cena zestawu to suma cen obu kół.',
       'sets.more700': 'Pojedyncze koła Ø700, bez zestawu, są w cenniku niżej.',
-      'sets.morelink700': 'Koła Ø700'
+      'sets.morelink700': 'Koła Ø700',
+      'ax.700free.t': 'Oś do koła wolnego Ø700',
+      'ax.700drive.t': 'Oś do koła napędowego Ø700',
+      'ax.700.d': 'Stal S355, kwadrat 45×45 mm, pierścień Z40, do kół Ø700.',
+      'ax.sum.700free': 'Oś S355 do koła wolnego Ø700',
+      'ax.sum.700drive': 'Oś S355 do koła napędowego Ø700'
     },
 
     /* ---------- ENGLISH ---------- */
@@ -270,7 +275,14 @@ window.I18N = {
       'k700.setlabel': 'Set no. 6, idler and drive wheel:',
       'k700.setnote': 'The set price is the sum of the two wheels.',
       'sets.more700': 'Single Ø700 wheels, sold on their own, are in the price list below.',
-      'sets.morelink700': 'Ø700 wheels'
+      'sets.morelink700': 'Ø700 wheels',
+      'ax.p4': 'Axle for the Ø700 wheels',
+      'ax.p4s': 'Fits the Ø700 idler wheel and the Ø700 drive wheel.',
+      'ax.700free.t': 'Axle for the Ø700 idler wheel',
+      'ax.700drive.t': 'Axle for the Ø700 drive wheel',
+      'ax.700.d': 'S355 steel, 45×45 mm square, Z40 ring, for Ø700 wheels.',
+      'ax.sum.700free': 'S355 axle for the Ø700 idler wheel',
+      'ax.sum.700drive': 'S355 axle for the Ø700 drive wheel'
     },
 
     /* ---------- SLOVENČINA ---------- */
@@ -438,7 +450,14 @@ window.I18N = {
       'ax.600drive.t': 'Os k hnaciemu kolesu Ø600',
       'ax.600.d': 'Rovnaká os ako ku kombinovanému hnaciemu kolesu. Oceľ S355, štvorec 45×45 mm, dĺžka 285–305 mm, krúžok Z40.',
       'ax.sum.600free': 'Os S355 k voľnému kolesu Ø600',
-      'ax.sum.600drive': 'Os S355 k hnaciemu kolesu Ø600'
+      'ax.sum.600drive': 'Os S355 k hnaciemu kolesu Ø600',
+      'ax.p4': 'Os ku kolesám Ø700',
+      'ax.p4s': 'Pasuje k voľnému aj hnaciemu kolesu Ø700.',
+      'ax.700free.t': 'Os ku voľnému kolesu Ø700',
+      'ax.700drive.t': 'Os ku hnaciemu kolesu Ø700',
+      'ax.700.d': 'Oceľ S355, štvorec 45×45 mm, krúžok Z40, pre kolesá Ø700.',
+      'ax.sum.700free': 'Os S355 k voľnému kolesu Ø700',
+      'ax.sum.700drive': 'Os S355 k hnaciemu kolesu Ø700'
     },
 
     /* ---------- ČEŠTINA ---------- */
@@ -606,7 +625,14 @@ window.I18N = {
       'ax.600drive.t': 'Osa k hnacímu kolu Ø600',
       'ax.600.d': 'Stejná osa jako ke kombinovanému hnacímu kolu. Ocel S355, čtverec 45×45 mm, délka 285–305 mm, kroužek Z40.',
       'ax.sum.600free': 'Osa S355 k volnému kolu Ø600',
-      'ax.sum.600drive': 'Osa S355 k hnacímu kolu Ø600'
+      'ax.sum.600drive': 'Osa S355 k hnacímu kolu Ø600',
+      'ax.p4': 'Osa ke kolům Ø700',
+      'ax.p4s': 'Hodí se k volnému i hnacímu kolu Ø700.',
+      'ax.700free.t': 'Osa k volnému kolu Ø700',
+      'ax.700drive.t': 'Osa k hnacímu kolu Ø700',
+      'ax.700.d': 'Ocel S355, čtverec 45×45 mm, kroužek Z40, pro kola Ø700.',
+      'ax.sum.700free': 'Osa S355 k volnému kolu Ø700',
+      'ax.sum.700drive': 'Osa S355 k hnacímu kolu Ø700'
     },
 
     /* ---------- LIETUVIŲ ---------- */
@@ -774,7 +800,14 @@ window.I18N = {
       'ax.600drive.t': 'Ašis varančiajam Ø600 ratui',
       'ax.600.d': 'Tokia pati ašis kaip sujungtajam varančiajam ratui. Plienas S355, kvadratas 45×45 mm, ilgis 285–305 mm, žiedas Z40.',
       'ax.sum.600free': 'S355 ašis laisvajam Ø600 ratui',
-      'ax.sum.600drive': 'S355 ašis varančiajam Ø600 ratui'
+      'ax.sum.600drive': 'S355 ašis varančiajam Ø600 ratui',
+      'ax.p4': 'Ašis Ø700 ratams',
+      'ax.p4s': 'Tinka laisvajam ir varančiajam Ø700 ratui.',
+      'ax.700free.t': 'Ašis laisvajam Ø700 ratui',
+      'ax.700drive.t': 'Ašis varančiajam Ø700 ratui',
+      'ax.700.d': 'S355 plienas, kvadratas 45×45 mm, žiedas Z40, Ø700 ratams.',
+      'ax.sum.700free': 'S355 ašis laisvajam Ø700 ratui',
+      'ax.sum.700drive': 'S355 ašis varančiajam Ø700 ratui'
     },
 
     /* ---------- LATVIEŠU ---------- */
@@ -942,7 +975,14 @@ window.I18N = {
       'ax.600drive.t': 'Ass dzenošajam Ø600 ritenim',
       'ax.600.d': 'Tāda pati ass kā kombinētajam dzenošajam ritenim. Tērauds S355, kvadrāts 45×45 mm, garums 285–305 mm, gredzens Z40.',
       'ax.sum.600free': 'S355 ass brīvajam Ø600 ritenim',
-      'ax.sum.600drive': 'S355 ass dzenošajam Ø600 ritenim'
+      'ax.sum.600drive': 'S355 ass dzenošajam Ø600 ritenim',
+      'ax.p4': 'Ass Ø700 riteņiem',
+      'ax.p4s': 'Der brīvajam un dzenošajam Ø700 ritenim.',
+      'ax.700free.t': 'Ass brīvajam Ø700 ritenim',
+      'ax.700drive.t': 'Ass dzenošajam Ø700 ritenim',
+      'ax.700.d': 'S355 tērauds, kvadrāts 45×45 mm, gredzens Z40, Ø700 riteņiem.',
+      'ax.sum.700free': 'S355 ass brīvajam Ø700 ritenim',
+      'ax.sum.700drive': 'S355 ass dzenošajam Ø700 ritenim'
     },
 
     /* ---------- EESTI ---------- */
@@ -1110,7 +1150,14 @@ window.I18N = {
       'ax.600drive.t': 'Telg Ø600 ajamirattale',
       'ax.600.d': 'Sama telg mis ühendatud ajamirattale. Teras S355, ruut 45×45 mm, pikkus 285–305 mm, rõngas Z40.',
       'ax.sum.600free': 'S355 telg vabale Ø600 rattale',
-      'ax.sum.600drive': 'S355 telg Ø600 ajamirattale'
+      'ax.sum.600drive': 'S355 telg Ø600 ajamirattale',
+      'ax.p4': 'Telg Ø700 ratastele',
+      'ax.p4s': 'Sobib vabale ja ajami Ø700 rattale.',
+      'ax.700free.t': 'Telg vabale Ø700 rattale',
+      'ax.700drive.t': 'Telg ajami Ø700 rattale',
+      'ax.700.d': 'S355 teras, ruut 45×45 mm, rõngas Z40, Ø700 ratastele.',
+      'ax.sum.700free': 'S355 telg vabale Ø700 rattale',
+      'ax.sum.700drive': 'S355 telg ajami Ø700 rattale'
     },
 
     /* ---------- ROMÂNĂ ---------- */
@@ -1278,7 +1325,14 @@ window.I18N = {
       'ax.600drive.t': 'Axă pentru roata de antrenare Ø600',
       'ax.600.d': 'Aceeași axă ca pentru roata de antrenare combinată. Oțel S355, pătrat 45×45 mm, lungime 285–305 mm, inel Z40.',
       'ax.sum.600free': 'Axă S355 pentru roata liberă Ø600',
-      'ax.sum.600drive': 'Axă S355 pentru roata de antrenare Ø600'
+      'ax.sum.600drive': 'Axă S355 pentru roata de antrenare Ø600',
+      'ax.p4': 'Axă pentru roțile Ø700',
+      'ax.p4s': 'Se potrivește la roata liberă și la roata de antrenare Ø700.',
+      'ax.700free.t': 'Axă pentru roata liberă Ø700',
+      'ax.700drive.t': 'Axă pentru roata de antrenare Ø700',
+      'ax.700.d': 'Oțel S355, pătrat 45×45 mm, inel Z40, pentru roțile Ø700.',
+      'ax.sum.700free': 'Axă S355 pentru roata liberă Ø700',
+      'ax.sum.700drive': 'Axă S355 pentru roata de antrenare Ø700'
     },
 
     /* ---------- БЪЛГАРСКИ ---------- */
@@ -1446,7 +1500,14 @@ window.I18N = {
       'ax.600drive.t': 'Ос за задвижващото колело Ø600',
       'ax.600.d': 'Същата ос като за комбинираното задвижващо колело. Стомана S355, квадрат 45×45 mm, дължина 285–305 mm, пръстен Z40.',
       'ax.sum.600free': 'Ос S355 за свободното колело Ø600',
-      'ax.sum.600drive': 'Ос S355 за задвижващото колело Ø600'
+      'ax.sum.600drive': 'Ос S355 за задвижващото колело Ø600',
+      'ax.p4': 'Ос за колела Ø700',
+      'ax.p4s': 'Пасва на свободното и на задвижващото колело Ø700.',
+      'ax.700free.t': 'Ос за свободното колело Ø700',
+      'ax.700drive.t': 'Ос за задвижващото колело Ø700',
+      'ax.700.d': 'Стомана S355, квадрат 45×45 mm, пръстен Z40, за колела Ø700.',
+      'ax.sum.700free': 'Ос S355 за свободното колело Ø700',
+      'ax.sum.700drive': 'Ос S355 за задвижващото колело Ø700'
     }
   }
 };
