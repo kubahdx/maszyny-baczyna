@@ -212,8 +212,9 @@
     try { fromUrl = ok(new URLSearchParams(location.search).get('lang')); } catch (e) {}
     if (fromUrl) return fromUrl;
     try { var saved = ok(localStorage.getItem('lang')); if (saved) return saved; } catch (e) {}
-    var first = ((navigator.languages && navigator.languages[0]) || navigator.language || '').slice(0, 2).toLowerCase();
-    return ok(first) || 'pl';
+    // Domyślnie zawsze polski: bez automatycznego wyboru z języka przeglądarki,
+    // żeby wyszukiwarki (Googlebot zgłasza angielski) indeksowały polską wersję.
+    return 'pl';
   }
 
   function setLang(l, persist) {
