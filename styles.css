@@ -515,3 +515,18 @@ legend { font-weight: 700; font-size: 1.15rem; padding: 0; margin-bottom: .7rem;
 @media (prefers-reduced-motion: reduce) {
   .collapsible.is-animating, .collapsible.is-collapsed { transition: none; }
 }
+
+/* Podstrony ofertowe */
+.page-head { background: var(--alt); border-bottom: 1px solid var(--line); padding: clamp(1.5rem, 4vw, 2.5rem) 0; }
+.page-head h1 { margin: .4rem 0 0; }
+.page-head .lead { max-width: 46rem; margin: 1rem 0 0; }
+.breadcrumb { font-size: 1rem; color: var(--muted); }
+.breadcrumb a { color: var(--green-dark); }
+.page-actions { margin-top: 1.25rem; display: flex; flex-wrap: wrap; gap: .75rem; }
+.page-sub .media .photo { cursor: default; }
+.related { list-style: none; margin: 1rem 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: .5rem 1.25rem; }
+.related a { font-weight: 600; }
+.page-axles { margin-top: 1.5rem; }
+.card-title { margin: 0 0 .75rem; font-size: 1.35rem; }
+.footer-links a { color: #e3eeec; }
+.site-nav a[aria-current="page"] { text-decoration: underline; text-underline-offset: 4px; }
