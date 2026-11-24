@@ -181,7 +181,7 @@
     if (!li) return;
     var code = li.getAttribute('data-lang');
     closeLangMenu(true);
-    if (code !== lang) setLang(code, true);
+    if (code !== lang) location.href = (code === 'pl' ? '/' : '/' + code + '/') + location.hash;
   }
 
   langBtn.addEventListener('click', function () {
@@ -207,14 +207,10 @@
   });
 
   function detectLang() {
-    var ok = function (c) { return c && I18N.languages.hasOwnProperty(c) ? c : null; };
-    var fromUrl = null;
-    try { fromUrl = ok(new URLSearchParams(location.search).get('lang')); } catch (e) {}
-    if (fromUrl) return fromUrl;
-    try { var saved = ok(localStorage.getItem('lang')); if (saved) return saved; } catch (e) {}
-    // Domyślnie zawsze polski: bez automatycznego wyboru z języka przeglądarki,
-    // żeby wyszukiwarki (Googlebot zgłasza angielski) indeksowały polską wersję.
-    return 'pl';
+    // Każdy język ma własny adres (/sk/, /cs/ ...) i ustawiony <html lang>.
+    // Bez automatycznego wyboru z przeglądarki, żeby wyszukiwarki widziały właściwą wersję.
+    var l = (document.documentElement.getAttribute('lang') || 'pl').toLowerCase();
+    return I18N.languages.hasOwnProperty(l) ? l : 'pl';
   }
 
   function setLang(l, persist) {
@@ -367,7 +363,7 @@
       '<span class="pv-svgs">' + svgs.map(function (id) {
         return '<svg aria-hidden="true" focusable="false"><use href="#' + id + '"/></svg>';
       }).join('') + '</span>' +
-      '<img class="photo" src="zdjecia/' + photo + '" alt="' + esc(cap) + '"' +
+      '<img class="photo" src="/zdjecia/' + photo + '" alt="' + esc(cap) + '"' +
       ' onerror="this.closest(\'.media\').classList.add(\'no-photo\');this.remove()">' +
       '</div><figcaption>' + esc(cap) + '</figcaption></figure>';
   }
