@@ -23,7 +23,7 @@ window.I18N = {
     /* ---------- POLSKI: tylko teksty generowane przez skrypt ---------- */
     pl: {
       'meta.title': 'Koła do traków taśmowych – Maszyny Baczyna, Końskie',
-      'meta.desc': 'Koła wolne, napędowe i zespolone do traków taśmowych, także koła Ø600. Łożyska 6208 2RS C3, paski 6PK1500, 7PK1870 i 6PK1880, osie ze stali S355. Cennik i kalkulator ceny. Maszyny Baczyna, Końskie.',
+      'meta.desc': 'Koła wolne, napędowe i zespolone do traków taśmowych, także Ø600 i Ø700. Cennik z cenami, kalkulator, osie ze stali S355. Maszyny Baczyna, Końskie.',
       'calc.l2.set': '2. Wybierz zestaw',
       'calc.l2.single': '2. Wybierz koło',
       'calc.copied': 'Skopiowano. Możesz wkleić to do wiadomości.',
