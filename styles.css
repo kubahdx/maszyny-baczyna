@@ -530,3 +530,4 @@ legend { font-weight: 700; font-size: 1.15rem; padding: 0; margin-bottom: .7rem;
 .card-title { margin: 0 0 .75rem; font-size: 1.35rem; }
 .footer-links a { color: #e3eeec; }
 .site-nav a[aria-current="page"] { text-decoration: underline; text-underline-offset: 4px; }
+.prose { max-width: 46rem; } .prose h2 { margin-top: 2rem; font-size: 1.5rem; } .prose p, .prose ul { margin-top: .75rem; }
