@@ -25,7 +25,7 @@ A one-person workshop that makes the wheels itself: balanced free and drive whee
 - Static site: HTML + CSS + vanilla JS, no build step. Translation lives in `i18n.js`, product prices in `script.js` and as `data-price` in `index.html`.
 - Product data (single source of truth): free wheel 1150 zł (2x 6208 2RS C3 + W80, 6PK1500, balanced, for a Ø40 axle); drive wheel with keyway 1000 zł (Ø40.00 bore, 10 mm keyway, 6PK1500, balanced, no bearings, mounts on the sawmill's drive axle); combined drive wheel Ø165 1500 zł and Ø330 1600 zł (3x 6208 2RS C3 + W80, 6PK1500, pulley pressed in + 6 screws, 2x B-17 V-belts, blade up to 50 mm, 40 mm recommended); sets nr 1 2100 / nr 2 2500 / nr 3 2600 zł; S355 axles 45x45 mm, 285-305 mm, Z40 ring: 230 zł (free wheel) and 240 zł (combined wheels); no axle for the set-1 drive wheel.
 - Only the free wheel and the keyway drive wheel are stated to be balanced ("wyważone"); do not claim it for the combined wheels.
-- Prices are GROSS (brutto, incl. VAT), confirmed by the client 2026-11-25.
+- The client is on VAT 0 (told 2026-11-25): prices are final, no VAT is added. Do not write "brutto", "netto" or "z VAT"; exact legal wording (e.g. exemption basis) not confirmed.
 - Undecided, pending client confirmation: shipping terms for foreign customers, final e-mail (placeholder in the Contact section); phone is +48 725 509 600.
 - Company: Maszyny Baczyna, Robert Boba, Baczyna 15A, 26-200 Końskie, Poland, NIP 6121216038.
 
